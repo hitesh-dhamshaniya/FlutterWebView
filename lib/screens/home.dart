@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_demo/screens/webpage.dart';
 
+import 'bloc_pattern_main.dart';
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -23,7 +25,6 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Form(
         key: _formKey,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
@@ -57,6 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   print("Form not validate-");
                 }
               },
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => BloCMainScreen()));
+              },
+              child: Text("Load Bloc Example"),
             ),
           ],
         ),
